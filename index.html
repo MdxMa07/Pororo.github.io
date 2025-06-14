@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solusi Terdepan untuk Popularitas Digital Anda 🚀</title>
+    <title>Solusi Terdepan untuk Popularitas Digital Anda </title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -40,6 +40,17 @@
             border-bottom-left-radius: var(--border-radius);
             border-bottom-right-radius: var(--border-radius);
             margin-bottom: 20px;
+        }
+
+        /* CSS untuk Logo */
+        .header-logo {
+            max-width: 200px; /* Atur lebar maksimum logo */
+            height: auto; /* Tinggi otomatis agar proporsional */
+            margin-bottom: 20px; /* Jarak antara logo dan judul */
+            background-color: white; /* Latar belakang putih untuk logo */
+            padding: 10px 20px; /* Padding di sekitar logo */
+            border-radius: var(--border-radius); /* Sudut membulat */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan tipis */
         }
 
         header h1 {
@@ -146,6 +157,8 @@
             font-weight: 600;
             transition: background-color 0.3s ease;
             margin-top: auto; /* Push button to the bottom */
+            cursor: pointer; /* Menambahkan kursor pointer */
+            border: none; /* Menghilangkan border default button */
         }
 
         .product-card .btn-order:hover {
@@ -201,6 +214,111 @@
             border-top: 1px solid #eee;
         }
 
+        /* Order Modal */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            cursor: pointer;
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .modal-content h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .modal-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .modal-form input[type="text"],
+        .modal-form input[type="number"],
+        .modal-form select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--secondary-color);
+            border-radius: var(--border-radius);
+            font-size: 1em;
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        .modal-form select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%20viewBox%3D%220%200%20292.4%20292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2C197.9c-3.6%2C3.6-7.8%2C5.4-12.5%2C5.4s-8.9-1.8-12.5-5.4L146.2%2C88.8L30.4%2C197.9c-3.6%2C3.6-7.8%2C5.4-12.5%2C5.4s-8.9-1.8-12.5-5.4C1.8%2C194.3%2C0%2C190.1%2C0%2C185.4s1.8-8.9%2C5.4-12.5l135.7-135.7c3.6-3.6%2C7.8-5.4%2C12.5-5.4s8.9%2C1.8%2C12.5%2C5.4l135.7%2C135.7c3.6%2C3.6%2C5.4%2C7.8%2C5.4%2C12.5S290.6%2C194.3%2C287%2C197.9z%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 12px;
+            padding-right: 30px;
+        }
+
+        .modal-form button {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-form button:hover {
+            background-color: var(--dark-pink);
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             header h1 {
@@ -224,13 +342,22 @@
             .contact-section h2 {
                 font-size: 2em;
             }
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+            }
+            .header-logo {
+                max-width: 150px; /* Lebih kecil di mobile */
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Tingkatkan Kehadiran Online Anda Sekarang! 🚀</h1>
+            <img src="image.png" alt="Jasa Tambah Followers Cepat Logo" class="header-logo">
+            
+            <h1>Tingkatkan Kehadiran Online Anda Sekarang! </h1>
             <p>Solusi Terdepan untuk Popularitas Digital Anda</p>
             <p>Apakah Anda ingin akun media sosial dan toko online Anda lebih dikenal dan berdampak? Kami hadir dengan solusi terbaik untuk Anda! Dapatkan followers, likes, dan views untuk Instagram, TikTok, Shopee, dan Telegram dengan harga yang sangat terjangkau dan terpercaya!</p>
         </div>
@@ -238,7 +365,7 @@
 
     <main class="container">
         <div class="service-category">
-            <h2>🌟 Layanan Instagram Kami</h2>
+            <h2> Layanan Instagram Kami</h2>
             <div class="product-grid">
                 <div class="product-card">
                     <h3>UpFollow Instagram (Garansi 30 Hari + Free Refill!)</h3>
@@ -251,7 +378,9 @@
                         <li><span>500 followers:</span> <span class="price">Rp 17.500</span></li>
                         <li><span>1.000 followers:</span> <span class="price">Rp 35.000</span></li>
                     </ul>
-                    <a href="#" class="btn-order" data-service="UpFollow Instagram (Garansi 30 Hari + Free Refill!)">Pesan Sekarang</a>
+                    <button class="btn-order" 
+                            data-service-name="UpFollow Instagram (Garansi 30 Hari + Free Refill!)"
+                            data-service-prices="100 followers: Rp 3.500; 200 followers: Rp 7.000; 300 followers: Rp 10.500; 400 followers: Rp 14.000; 500 followers: Rp 17.500; 1.000 followers: Rp 35.000">Pesan Sekarang</button>
                 </div>
 
                 <div class="product-card">
@@ -265,12 +394,14 @@
                         <li><span>500 followers:</span> <span class="price">Rp 25.000</span></li>
                         <li><span>1.000 followers:</span> <span class="price">Rp 50.000</span></li>
                     </ul>
-                    <a href="#" class="btn-order" data-service="UpFollow Instagram (Permanen + Luar + Garansi)">Pesan Sekarang</a>
+                    <button class="btn-order" 
+                            data-service-name="UpFollow Instagram (Permanen + Luar + Garansi)"
+                            data-service-prices="100 followers: Rp 5.000; 200 followers: Rp 10.000; 300 followers: Rp 15.000; 400 followers: Rp 20.000; 500 followers: Rp 25.000; 1.000 followers: Rp 50.000">Pesan Sekarang</button>
                 </div>
                 
                 <div class="product-card">
-                    <h3>UpFollow Instagram (Indo Permanen + Garansi Seumur Hidup + Free Refill!)</h3>
-                    <p>Pilih followers aktif dan nyata dari Indonesia dengan garansi seumur hidup dan isi ulang gratis! Dapatkan komunitas yang relevan dan interaktif.</p>
+                    <h3>UpFollow Instagram (Indo Permanen + Garansi + Free Refill!)</h3>
+                    <p>Pilih followers aktif dan nyata dari Indonesia dengan garansi dan isi ulang gratis! Dapatkan komunitas yang relevan dan interaktif.</p>
                     <ul>
                         <li><span>100 followers:</span> <span class="price">Rp 9.000</span></li>
                         <li><span>200 followers:</span> <span class="price">Rp 18.000</span></li>
@@ -278,7 +409,9 @@
                         <li><span>500 followers:</span> <span class="price">Rp 45.000</span></li>
                         <li><span>1.000 followers:</span> <span class="price">Rp 90.000</span></li>
                     </ul>
-                    <a href="#" class="btn-order" data-service="UpFollow Instagram (Indo Permanen + Garansi Seumur Hidup + Free Refill!)">Pesan Sekarang</a>
+                    <button class="btn-order" 
+                            data-service-name="UpFollow Instagram (Indo Permanen + Garansi + Free Refill!)"
+                            data-service-prices="100 followers: Rp 9.000; 200 followers: Rp 18.000; 300 followers: Rp 27.000; 500 followers: Rp 45.000; 1.000 followers: Rp 90.000">Pesan Sekarang</button>
                 </div>
 
                 <div class="product-card">
@@ -292,11 +425,13 @@
                         <li><span>500 followers:</span> <span class="price">Rp 37.000</span></li>
                         <li><span>1.000 followers:</span> <span class="price">Rp 72.000</span></li>
                     </ul>
-                    <a href="#" class="btn-order" data-service="UpFollow Instagram (Indo + Real Aktif + Garansi 30 Hari + Free Refill!)">Pesan Sekarang</a>
+                    <button class="btn-order" 
+                            data-service-name="UpFollow Instagram (Indo + Real Aktif + Garansi 30 Hari + Free Refill!)"
+                            data-service-prices="100 followers: Rp 7.000; 200 followers: Rp 14.000; 300 followers: Rp 22.000; 400 followers: Rp 29.000; 500 followers: Rp 37.000; 1.000 followers: Rp 72.000">Pesan Sekarang</button>
                 </div>
 
                 <div class="product-card">
-                    <h3>UpLike Instagram (Seumur Hidup)</h3>
+                    <h3>UpLike Instagram</h3>
                     <p>Tingkatkan interaksi postingan Anda dengan likes permanen yang akan membuat konten Anda lebih menonjol.</p>
                     <ul>
                         <li><span>500 likes:</span> <span class="price">Rp 2.000</span></li>
@@ -306,7 +441,9 @@
                         <li><span>4.000 likes:</span> <span class="price">Rp 12.000</span></li>
                         <li><span>5.000 likes:</span> <span class="price">Rp 14.500</span></li>
                     </ul>
-                    <a href="#" class="btn-order" data-service="UpLike Instagram (Seumur Hidup)">Pesan Sekarang</a>
+                    <button class="btn-order" 
+                            data-service-name="UpLike Instagram"
+                            data-service-prices="500 likes: Rp 2.000; 1.000 likes: Rp 3.500; 2.000 likes: Rp 7.000; 3.000 likes: Rp 10.000; 4.000 likes: Rp 12.000; 5.000 likes: Rp 14.500">Pesan Sekarang</button>
                 </div>
 
                 <div class="product-card">
@@ -321,7 +458,9 @@
                         <li><span>10.000 views:</span> <span class="price">Rp 5.000</span></li>
                         <li><span>50.000 views:</span> <span class="price">Rp 16.000</span></li>
                     </ul>
-                    <a href="#" class="btn-order" data-service="UpViews Instagram (Reels)">Pesan Sekarang</a>
+                    <button class="btn-order" 
+                            data-service-name="UpViews Instagram (Reels)"
+                            data-service-prices="1.000 views: Rp 500; 2.000 views: Rp 1.000; 3.000 views: Rp 1.500; 4.000 views: Rp 2.000; 5.000 views: Rp 2.500; 10.000 views: Rp 5.000; 50.000 views: Rp 16.000">Pesan Sekarang</button>
                 </div>
             </div>
         </div>
@@ -329,7 +468,7 @@
         ---
 
         <div class="service-category">
-            <h2>🎶 Layanan TikTok Kami</h2>
+            <h2> Layanan TikTok Kami</h2>
             <div class="product-grid">
                 <div class="product-card">
                     <h3>UpFollow TikTok (Drop 1% + Fast)</h3>
@@ -342,12 +481,14 @@
                         <li><span>500 followers:</span> <span class="price">Rp 22.000</span></li>
                         <li><span>1.000 followers:</span> <span class="price">Rp 44.000</span></li>
                     </ul>
-                    <a href="#" class="btn-order" data-service="UpFollow TikTok (Drop 1% + Fast)">Pesan Sekarang</a>
+                    <button class="btn-order" 
+                            data-service-name="UpFollow TikTok (Drop 1% + Fast)"
+                            data-service-prices="100 followers: Rp 4.000; 200 followers: Rp 8.500; 300 followers: Rp 13.000; 400 followers: Rp 17.500; 500 followers: Rp 22.000; 1.000 followers: Rp 44.000">Pesan Sekarang</button>
                 </div>
 
                 <div class="product-card">
-                    <h3>UpFollow TikTok (Permanen + Garansi Seumur Hidup + Free Refill)</h3>
-                    <p>Followers TikTok permanen dengan garansi seumur hidup dan isi ulang gratis. Investasi jangka panjang untuk popularitas Anda!</p>
+                    <h3>UpFollow TikTok (Permanen + Garansi + Free Refill)</h3>
+                    <p>Followers TikTok permanen dengan garansi dan isi ulang gratis. Investasi jangka panjang untuk popularitas Anda!</p>
                     <ul>
                         <li><span>100 followers:</span> <span class="price">Rp 15.000</span></li>
                         <li><span>200 followers:</span> <span class="price">Rp 27.000</span></li>
@@ -355,7 +496,9 @@
                         <li><span>500 followers:</span> <span class="price">Rp 68.000</span></li>
                         <li><span>1.000 followers:</span> <span class="price">Rp 130.000</span></li>
                     </ul>
-                    <a href="#" class="btn-order" data-service="UpFollow TikTok (Permanen + Garansi Seumur Hidup + Free Refill)">Pesan Sekarang</a>
+                    <button class="btn-order" 
+                            data-service-name="UpFollow TikTok (Permanen + Garansi + Free Refill)"
+                            data-service-prices="100 followers: Rp 15.000; 200 followers: Rp 27.000; 300 followers: Rp 39.000; 500 followers: Rp 68.000; 1.000 followers: Rp 130.000">Pesan Sekarang</button>
                 </div>
 
                 <div class="product-card">
@@ -368,7 +511,9 @@
                         <li><span>500 followers:</span> <span class="price">Rp 82.500</span></li>
                         <li><span>1.000 followers:</span> <span class="price">Rp 165.000</span></li>
                     </ul>
-                    <a href="#" class="btn-order" data-service="UpFollow TikTok (Indo + Real Aktif + Garansi 30 Hari + Free Refill!)">Pesan Sekarang</a>
+                    <button class="btn-order" 
+                            data-service-name="UpFollow TikTok (Indo + Real Aktif + Garansi 30 Hari + Free Refill!)"
+                            data-service-prices="100 followers: Rp 16.500; 200 followers: Rp 33.000; 300 followers: Rp 49.500; 500 followers: Rp 82.500; 1.000 followers: Rp 165.000">Pesan Sekarang</button>
                 </div>
 
                 <div class="product-card">
@@ -382,7 +527,9 @@
                         <li><span>4.000 likes:</span> <span class="price">Rp 16.500</span></li>
                         <li><span>5.000 likes:</span> <span class="price">Rp 18.500</span></li>
                     </ul>
-                    <a href="#" class="btn-order" data-service="UpLike TikTok (Garansi 30 Days)">Pesan Sekarang</a>
+                    <button class="btn-order" 
+                            data-service-name="UpLike TikTok (Garansi 30 Days)"
+                            data-service-prices="500 likes: Rp 2.500; 1.000 likes: Rp 4.000; 2.000 likes: Rp 12.500; 3.000 likes: Rp 15.000; 4.000 likes: Rp 16.500; 5.000 likes: Rp 18.500">Pesan Sekarang</button>
                 </div>
 
                 <div class="product-card">
@@ -396,7 +543,9 @@
                         <li><span>50.000 views:</span> <span class="price">Rp 3.500</span></li>
                         <li><span>100.000 views:</span> <span class="price">Rp 5.500</span></li>
                     </ul>
-                    <a href="#" class="btn-order" data-service="UpViews TikTok">Pesan Sekarang</a>
+                    <button class="btn-order" 
+                            data-service-name="UpViews TikTok"
+                            data-service-prices="10.000 views: Rp 1.000; 20.000 views: Rp 2.000; 30.000 views: Rp 2.500; 40.000 views: Rp 3.000; 50.000 views: Rp 3.500; 100.000 views: Rp 5.500">Pesan Sekarang</button>
                 </div>
 
                 <div class="product-card">
@@ -410,7 +559,9 @@
                         <li><span>5.000 saves:</span> <span class="price">Rp 5.000</span></li>
                         <li><span>10.000 saves:</span> <span class="price">Rp 10.000</span></li>
                     </ul>
-                    <a href="#" class="btn-order" data-service="UpShare TikTok (Permanen)">Pesan Sekarang</a>
+                    <button class="btn-order" 
+                            data-service-name="UpShare TikTok (Permanen)"
+                            data-service-prices="1.000 saves: Rp 1.000; 2.000 saves: Rp 2.000; 3.000 saves: Rp 3.000; 4.000 saves: Rp 4.000; 5.000 saves: Rp 5.000; 10.000 saves: Rp 10.000">Pesan Sekarang</button>
                 </div>
             </div>
         </div>
@@ -418,7 +569,7 @@
         ---
 
         <div class="service-category">
-            <h2>🛒 Layanan Lainnya</h2>
+            <h2> Layanan Lainnya</h2>
             <div class="product-grid">
                 <div class="product-card">
                     <h3>UpFollow Shopee Indo</h3>
@@ -430,14 +581,18 @@
                         <li><span>5.000 followers:</span> <span class="price">Rp 20.000</span></li>
                         <li><span>10.000 followers:</span> <span class="price">Rp 40.000</span></li>
                     </ul>
-                    <a href="#" class="btn-order" data-service="UpFollow Shopee Indo">Pesan Sekarang</a>
+                    <button class="btn-order" 
+                            data-service-name="UpFollow Shopee Indo"
+                            data-service-prices="1.000 followers: Rp 5.000; 2.000 followers: Rp 10.000; 3.000 followers: Rp 15.000; 5.000 followers: Rp 20.000; 10.000 followers: Rp 40.000">Pesan Sekarang</button>
                 </div>
 
                 <div class="product-card">
                     <h3>Subscribe Telegram</h3>
                     <p>Perbanyak anggota channel Telegram Anda. Bangun komunitas yang besar dan loyal untuk pesan Anda!</p>
                     <p><strong>Harga menyesuaikan paket, hubungi kami untuk info lebih lanjut!</strong></p>
-                    <a href="#" class="btn-order" data-service="Subscribe Telegram">Pesan Sekarang</a>
+                    <button class="btn-order" 
+                            data-service-name="Subscribe Telegram"
+                            data-service-prices="Harga menyesuaikan paket, hubungi kami untuk info lebih lanjut!">Pesan Sekarang</button>
                 </div>
             </div>
         </div>
@@ -445,7 +600,7 @@
         ---
 
         <div class="contact-section">
-            <h2>📞 Hubungi Kami Sekarang!</h2>
+            <h2> Hubungi Kami Sekarang!</h2>
             <p>Jangan lewatkan kesempatan untuk meningkatkan kehadiran online Anda! Hubungi kami untuk penawaran khusus dan paket yang disesuaikan dengan kebutuhan Anda. Mari wujudkan tujuan digital Anda bersama kami!</p>
             <a href="https://wa.me/6282252179691?text=Halo,%20saya%20tertarik%20dengan%20layanan%20peningkatan%20popularitas%20digital%20Anda.%20Mohon%20info%20lebih%20lanjut." class="btn-contact" target="_blank">Hubungi via WhatsApp</a>
         </div>
@@ -455,37 +610,95 @@
         <p>&copy; 2025 Solusi Popularitas Digital. Semua Hak Dilindungi.</p>
     </footer>
 
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Detail Pesanan</h2>
+            <form id="orderForm" class="modal-form">
+                <p>Anda akan memesan: <strong id="modalServiceName"></strong></p>
+                <p id="modalServicePrices" style="white-space: pre-wrap; font-size: 0.9em; color: #555;"></p>
+
+                <label for="orderLink">Link/Username Tujuan:</label>
+                <input type="text" id="orderLink" name="link" placeholder="Contoh: https://instagram.com/username atau @username" required>
+                
+                <label for="customerName">Nama Anda:</label>
+                <input type="text" id="customerName" name="customer_name" placeholder="Nama Lengkap Anda" required>
+
+                <label for="customerWhatsapp">Nomor WhatsApp:</label>
+                <input type="text" id="customerWhatsapp" name="whatsapp_number" placeholder="Contoh: 6281234567890" required>
+
+                <button type="submit">Kirim Pesanan via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const orderButtons = document.querySelectorAll('.btn-order');
             const whatsappNumber = '6282252179691'; // Nomor WhatsApp Anda
 
+            const orderModal = document.getElementById('orderModal');
+            const closeButton = document.querySelector('.close-button');
+            const orderForm = document.getElementById('orderForm');
+            const modalServiceName = document.getElementById('modalServiceName');
+            const modalServicePrices = document.getElementById('modalServicePrices');
+            
+            let selectedService = {
+                name: '',
+                prices: ''
+            };
+
+            // --- Handler untuk tombol "Pesan Sekarang" ---
             orderButtons.forEach(button => {
                 button.addEventListener('click', function(event) {
-                    event.preventDefault(); // Mencegah perilaku default tautan
-                    const serviceName = this.getAttribute('data-service');
-                    const productCard = this.closest('.product-card');
-                    
-                    let pricesText = '';
-                    // Mengambil detail harga dari <ul> jika ada
-                    const priceList = productCard.querySelector('ul');
-                    if (priceList) {
-                        priceList.querySelectorAll('li').forEach(item => {
-                            const quantity = item.children[0] ? item.children[0].innerText : '';
-                            const price = item.children[1] ? item.children[1].innerText : '';
-                            pricesText += `${quantity} ${price}\n`;
-                        });
-                    } else {
-                        // Untuk kasus Telegram yang pakai <p> bukan <ul>
-                        // Mengambil teks dari paragraf kedua dalam product-card untuk Telegram
-                        const telegramPriceP = productCard.querySelector('p:nth-of-type(2)');
-                        pricesText = telegramPriceP ? telegramPriceP.innerText : 'Harga menyesuaikan paket, hubungi kami untuk info lebih lanjut!';
-                    }
-                    
-                    const message = encodeURIComponent(`Halo, saya tertarik dengan layanan "${serviceName}". Berikut detail harganya:\n\n${pricesText}\nMohon info bagaimana cara pemesanannya.`);
-                    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
-                    window.open(whatsappLink, '_blank');
+                    // Ambil data dari atribut data-
+                    selectedService.name = this.dataset.serviceName;
+                    selectedService.prices = this.dataset.servicePrices;
+
+                    // Isi modal dengan detail layanan
+                    modalServiceName.textContent = selectedService.name;
+                    // Mengganti semicolon dengan baris baru untuk tampilan yang lebih rapi
+                    modalServicePrices.textContent = selectedService.prices.replace(/; /g, '\n'); 
+
+                    // Reset form sebelumnya (jika ada input yang terisi)
+                    orderForm.reset();
+
+                    // Tampilkan modal
+                    orderModal.style.display = 'flex';
                 });
+            });
+
+            // --- Tutup Modal ---
+            closeButton.addEventListener('click', function() {
+                orderModal.style.display = 'none';
+            });
+
+            window.addEventListener('click', function(event) {
+                if (event.target == orderModal) {
+                    orderModal.style.display = 'none';
+                }
+            });
+
+            // --- Handler Submit Form Pemesanan ---
+            orderForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Mencegah form dari submit default
+
+                const orderLink = document.getElementById('orderLink').value;
+                const customerName = document.getElementById('customerName').value;
+                const customerWhatsapp = document.getElementById('customerWhatsapp').value;
+
+                // Buat pesan WhatsApp
+                const whatsappMessage = `Halo admin,\n\nSaya ingin memesan layanan berikut:\n\n*Layanan:* ${selectedService.name}\n*Detail Harga:*\n${selectedService.prices.replace(/; /g, '\n')}\n*Link/Username Tujuan:* ${orderLink}\n*Nama Pemesan:* ${customerName}\n*Nomor WhatsApp Pemesan:* ${customerWhatsapp}\n\nMohon info lebih lanjut untuk proses pemesanan dan pembayarannya. Terima kasih!`;
+                
+                // Encode pesan untuk URL
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+                const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+                
+                // Buka link WhatsApp di tab baru
+                window.open(whatsappLink, '_blank');
+
+                // Opsional: Tutup modal setelah mengirim
+                orderModal.style.display = 'none';
             });
         });
     </script>
